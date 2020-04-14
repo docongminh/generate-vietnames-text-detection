@@ -27,7 +27,7 @@ import pickle
 
 # Define some configuration variables:
 NUM_IMG = -1  # number of images to use for generation (-1 to use all available):
-INSTANCE_PER_IMAGE = 10  # number of times to use the same image
+INSTANCE_PER_IMAGE = 5  # number of times to use the same image
 SECS_PER_IMG = 10  # max time per image in seconds
 
 # path to the data-file, containing image, depth and segmentation:
