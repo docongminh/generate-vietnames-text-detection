@@ -89,7 +89,7 @@ class RenderFont(object):
 
         ## TEXT PLACEMENT PARAMETERS:
         self.f_shrink = 0.90
-        self.max_shrink_trials = 10 #5 # 0.9^5 ~= 0.6
+        self.max_shrink_trials = 5 #5 # 0.9^5 ~= 0.6
         # the minimum number of characters that should fit in a mask
         # to define the maximum font height.
         self.min_nchar = 2
@@ -341,12 +341,12 @@ class RenderFont(object):
         ## TODO : change this to allow multiple text instances?
         i = 0
         while i < self.max_shrink_trials and max_font_h > self.min_font_h:
-            # if i > 0:
-            #     print colorize(Color.BLUE, "shrinkage trial : %d"%i, True)
+            if i > 0:
+                print (colorize(Color.BLUE, "shrinkage trial : %d"%i, True))
 
             # sample a random font-height:
             f_h_px = self.sample_font_height_px(self.min_font_h, max_font_h)
-            #print "font-height : %.2f (min: %.2f, max: %.2f)"%(f_h_px, self.min_font_h,max_font_h)
+            print ("font-height : %.2f (min: %.2f, max: %.2f)"%(f_h_px, self.min_font_h,max_font_h))
             # convert from pixel-height to font-point-size:
             f_h = self.font_state.get_font_size(font, f_h_px)
 
@@ -358,7 +358,7 @@ class RenderFont(object):
 
             # compute the max-number of lines/chars-per-line:
             nline,nchar = self.get_nline_nchar(mask.shape[:2],f_h,f_h*f_asp)
-            #print "  > nline = %d, nchar = %d"%(nline, nchar)
+            print ("> nline = %d, nchar = %d"%(nline, nchar))
 
             assert nline >= 1 and nchar >= self.min_nchar
 
@@ -381,6 +381,7 @@ class RenderFont(object):
             # position the text within the mask:
             text_mask,loc,bb, _ = self.place_text([txt_arr], mask, [bb])
             if len(loc) > 0:#successful in placing the text collision-free:
+                print("successful in placing the text collision-free")
                 return text_mask,loc[0],bb[0],text
         return #None
 
