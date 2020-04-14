@@ -30,12 +30,12 @@ class TextRegions(object):
     Get region from segmentation which are good for placing
     text.
     """
-    minWidth = 25 #30  # px
-    minHeight = 25 #30  # px
+    minWidth = 30  # px
+    minHeight = 30  # px
     minAspect = 0.3  # w > 0.3*h
     maxAspect = 7
     minArea = 100  # number of pix
-    pArea = 0.7 #0.60  # area_obj/area_minrect >= 0.6
+    pArea = 0.6  # area_obj/area_minrect >= 0.6
 
     # RANSAC planar fitting params:
     dist_thresh = 0.10  # m
