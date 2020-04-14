@@ -8,5 +8,3 @@ vn/timesbd.ttf
 vn/timesbi.ttf
 vn/timesi.ttf
 vn/ocrb2.ttf
-vn/ocrbmedium.tff
-vn/ocrbregular.tff
