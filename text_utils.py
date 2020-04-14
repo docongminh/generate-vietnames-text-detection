@@ -98,7 +98,7 @@ class RenderFont(object):
         self.p_flat = 0.12 #0.10
 
         # curved baseline:
-        self.p_curved = 1.2 # 1.0
+        self.p_curved = 0.5 #1.2 # 1.0
         self.baselinestate = BaselineState()
 
         # text-source : gets english text:
