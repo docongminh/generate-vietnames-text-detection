@@ -365,6 +365,7 @@ class RenderFont(object):
             # sample text:
             text_type = sample_weighted(self.p_text)
             text = self.text_source.sample(nline,nchar,text_type)
+            print(">>> Text from text_source: ", text)
             if len(text)==0 or np.any([len(line)==0 for line in text]):
                 continue
             #print colorize(Color.GREEN, text)
@@ -376,6 +377,9 @@ class RenderFont(object):
             # make sure that the text-array is not bigger than mask array:
             if np.any(np.r_[txt_arr.shape[:2]] > np.r_[mask.shape[:2]]):
                 #warn("text-array is bigger than mask")
+                print("text size: ", np.r_[txt_arr.shape[:2]])
+                print("mask size: ", np.r_[mask.shape[:2]])
+                print("This text bigger than mask ")
                 continue
 
             # position the text within the mask:
