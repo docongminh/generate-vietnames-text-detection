@@ -135,7 +135,8 @@ def main(viz, debug, output_masks, data_path, job):
                         'chars': [list(y) for y in (chain(*(x.split() for x in instance['txt'])))]
                     }
                     print("data_instance: ", data_instance)
-                    output_path = 'results/gendata/{}_{}_{}.bin'.format(imname, job, j)
+                    name = imname.split('.')[0]
+                    output_path = 'results/gendata/{}_{}_{}.bin'.format(name, job, j)
                     mkdir_if_missing(output_path)
                     with open(output_path, 'wb') as f:
                         pickle.dump(data_instance, f)
@@ -219,7 +220,7 @@ if __name__ == '__main__':
     masks = args.output_masks
     background = args.data_path
 
-    for i in range(10):
+    for i in range(14):
         p = Process(target=main, args=(vizua, debug, masks, background, i))
         p.daemon = True
         p.start()
