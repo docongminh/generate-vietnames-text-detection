@@ -1,9 +1,3 @@
-vn/times.ttf
-vn/arial.ttf
-vn/arialbd.ttf
-vn/arialbi.ttf
-vn/ariali.ttf
-vn/times.ttf
-vn/timesbd.ttf
-vn/timesbi.ttf
-vn/timesi.ttf
+vn/OCRB.otf
+vn/OCRB Medium.ttf
+vn/OCRB Regular.ttf
