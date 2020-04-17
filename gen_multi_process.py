@@ -135,11 +135,11 @@ def main(viz, debug, output_masks, data_path, job):
                         'chars': [list(y) for y in (chain(*(x.split() for x in instance['txt'])))]
                     }
                     print("data_instance: ", data_instance)
-                    name = imname.split('.')[0]
                     no_word = len(data_instance['chars'])
                     output_path = 'results/gendata'
-                    mkdir_if_missing(output_path)
-                    path_file = os.path.join(output_path, '{}_{}_{}_{}.bin'.format(name, no_word, i, job))
+                    if not os.path.exists(output_path):
+                        mkdir_if_missing(output_path)
+                    path_file = os.path.join(output_path, '{}_{}_{}_{}.bin'.format(imname, no_word, i, job))
                     with open(path_file, 'wb') as f:
                         pickle.dump(data_instance, f)
                         print("saved data")
