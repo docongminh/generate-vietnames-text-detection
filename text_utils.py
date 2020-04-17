@@ -257,10 +257,7 @@ class RenderFont(object):
         H,W = mask_size
         nline = int(np.ceil(H/(2*font_height)))
         nchar = int(np.floor(W/font_width))
-        if nchar < 23:
-            return nline, 23
-        else:
-            return nline,nchar
+        return nline, nchar
 
     def place_text(self, text_arrs, back_arr, bbs):
         areas = [-np.prod(ta.shape) for ta in text_arrs]

@@ -136,9 +136,11 @@ def main(viz, debug, output_masks, data_path, job):
                     }
                     print("data_instance: ", data_instance)
                     name = imname.split('.')[0]
-                    output_path = 'results/gendata/{}_{}_{}.bin'.format(name, job, j)
+                    no_word = len(data_instance['chars'])
+                    output_path = 'results/gendata'
                     mkdir_if_missing(output_path)
-                    with open(output_path, 'wb') as f:
+                    path_file = os.path.join(output_path, '{}_{}_{}_{}.bin'.format(name, no_word, i, job))
+                    with open(path_file, 'wb') as f:
                         pickle.dump(data_instance, f)
                         print("saved data")
                     count += 1
