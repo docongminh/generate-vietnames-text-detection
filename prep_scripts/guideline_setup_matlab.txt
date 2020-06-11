@@ -1,0 +1,36 @@
+1. install crack matlab ( nhớ cài parallel computing toolbox)
+
+2. clone https://bitbucket.org/fayao/dcnf-fcsp/
+
+3. clone https://github.com/ankush-me/SynthText
+
+4. copy https://github.com/ankush-me/SynthText/blob/master/prep_scripts/predict_depth.m 
+to https://bitbucket.org/fayao/dcnf-fcsp/src/master/demo/
+
+5. setup vlfeat
+run( '../libs/vlfeat-0.9.18/toolbox/vl_setup');
+
+6. download https://www.vlfeat.org/matconvnet/download/matconvnet-1.0-beta9.tar.gz
+
+7. change folder matconvnet_20141015 to matconvnet-1.0-beta9
+
+8. copy https://bitbucket.org/fayao/dcnf-fcsp/src/master/libs/vlfeat-0.9.18/toolbox/mex/ 
+to matconvnet-1.0-beta9/matlab/
+
+9. cd matconvnet-1.0-beta9
+	mex -setup
+	mex -setup C++
+	addpath matlab
+	vl_setupnn
+	vl_compilenn
+
+
+10. edit file predict_depth.m 
++comment set up line 
+    % setup vlfeat
+    %run( '../libs/vlfeat-0.9.18/toolbox/vl_setup');
+    % setup matconvnet
+    %dir_matConvNet='../libs/matconvnet/matlab/';
+    %addpath(genpath(dir_matConvNet));
+    %run([dir_matConvNet 'vl_setupnn.m']);
++insert opts.useGpu=false; in line 39
